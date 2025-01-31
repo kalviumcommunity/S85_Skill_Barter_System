@@ -1,0 +1,12 @@
+{
+  "name": "skill-barter-system",
+  "version": "1.0.0",
+  "description": "Skill Barter System Description: A platform that enables users to exchange skills or services without monetary transactions. Users can offer their skills (e.g., graphic design, cooking lessons) and request services in return (e.g., tutoring, web development). It fosters a collaborative community where people help each other by sharing expertise.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "\"rishi\"",
+  "license": "ISC"
+}
