@@ -1,5 +1,8 @@
 Skill Barter System Description: A platform that enables users to exchange skills or services without monetary transactions. Users can offer their skills (e.g., graphic design, cooking lessons) and request services in return (e.g., tutoring, web development). It fosters a collaborative community where people help each other by sharing expertise.
 
+RENDER DEPLOY LINK:
+https://s85-skill-barter-system-4.onrender.com/
+
 Frontend Technology Stack: React.js, Tailwind CSS
 
 Key Features: User Profiles: Showcase skills offered, skills needed, and user ratings. Skill Exchange Listings: Browse, search, and filter skill exchange offers. Chat System: In-app messaging for negotiation and planning exchanges. Dashboard: Track active exchanges, pending requests, and transaction history. Responsive Design: Accessible across mobile and desktop.
@@ -23,3 +26,4 @@ Freelance Empowerment Freelancers can use the platform to trade skills for other
 Fosters Mutual Respect Encourages appreciation for diverse talents and skills, as users realize the value of exchanging their expertise. 
 
 Strengthens relationships between people by creating equitable, win-win transactions. Use Case Examples A teacher offers math tutoring in exchange for yoga lessons. A graphic designer creates a logo for someone in exchange for digital marketing consultation. A carpenter provides furniture repair services in return for website development.
+
