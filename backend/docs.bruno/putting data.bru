@@ -1,0 +1,27 @@
+meta {
+  name: putting data
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:3000/api/users
+  body: json
+  auth: none
+}
+
+headers {
+  Key: Content-Type
+  Value: application/json
+}
+
+body:json {
+  {
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "securepassword",
+    "skillsOffered": ["Web Development", "JavaScript"],
+    "skillsNeeded": ["Graphic Design"],
+    "bio": "Full-stack developer looking to learn design"
+  }
+}
