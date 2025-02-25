@@ -1,0 +1,22 @@
+meta {
+  name: put
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:3000/api/users/67bd5f78f6d8473e92be8ada
+  body: json
+  auth: none
+}
+
+headers {
+  Key: Content-Type
+  Value: application/json
+}
+
+body:json {
+  {
+     "name": "madhav"
+  }
+}
