@@ -27,3 +27,6 @@ Fosters Mutual Respect Encourages appreciation for diverse talents and skills, a
 
 Strengthens relationships between people by creating equitable, win-win transactions. Use Case Examples A teacher offers math tutoring in exchange for yoga lessons. A graphic designer creates a logo for someone in exchange for digital marketing consultation. A carpenter provides furniture repair services in return for website development.
 
+
+CloudFlare Link: http://25154d76.skillbartersystem.pages.dev/
+
