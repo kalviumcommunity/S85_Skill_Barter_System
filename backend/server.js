@@ -1,56 +1,33 @@
-
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const routes = require('./Routess/routes'); 
-
+const routes = require("./Routess/routes"); // Ensure this path is correct
 
 const app = express();
-
-app.use(cors());
-app.use(express.json()); 
-
-
-mongoose.connect(process.env.URL)
-.then(() => console.log("MongoDB Connected"))
-.catch(err => console.error("MongoDB Connection Error:", err));
-
-
-app.use("/api", routes);
-
-
-app.get("/", (req, res) => {
-    res.send("Welcome to the Skill Barter System API!");
-});
-
-
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
 
-    console.log(`Server running on port ${PORT}`);
-
-    console.log(`🚀 Server running on port ${PORT}`);
-
-const express = require('express');
-const app = express();
-const PORT = 3000;
-
-// Middleware to parse JSON
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-// Basic /ping route
-app.get('/', (req, res) => {
-    res.send('Hello,I am Rishi, this is my project of Skill Barter System');
+// MongoDB Connection
+mongoose.connect(process.env.URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.error("❌ MongoDB Connection Error:", err));
+
+// API Routes
+app.use("/api", routes);
+
+// Root Route
+app.get("/", (req, res) => {
+    res.send("Hello, I am Rishi. This is my Skill Barter System project API.");
 });
 
-// Start the server
+// Start the Server
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-
+    console.log(`Server running on port http://localhost:${PORT}`);
 });
-
-
-
-
-
