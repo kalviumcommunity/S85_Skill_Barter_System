@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
-const connectDatabase = () => {
-  mongoose
-    .connect(process.env.DB_URL)
-    .then((data) => {
-      console.log(`mongod connected with server: ${data.connection.host}`);
-    });
-};
-module.exports = connectDatabase;
+require("dotenv").config(); // Load environment variables
+
+const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/skillbarter"; // ✅ Correct DB name
+
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.error("❌ MongoDB Connection Error:", err));
+
+module.exports = mongoose;
