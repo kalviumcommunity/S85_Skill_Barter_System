@@ -1,35 +1,29 @@
-import { useEffect, useState } from "react";
-import AddUserPage from "../pages/AddUserPage";
-import "../components/HomePage.css";
+import React from "react";
 
- // Import the new CSS
-
-const HomePage = () => {
-  const [users, setUsers] = useState([]);
-
-  const fetchUsers = async () => {
-    const response = await fetch("http://localhost:5000/api/users");
-    const data = await response.json();
-    setUsers(data);
-  };
-
-  useEffect(() => { fetchUsers(); }, []);
-
+const HomePage = ({ users, onEdit, refreshList }) => {
   return (
-    <div className="container">
-      <h1 className="text-center">Skill Barter System</h1>
-      <AddUserPage onUserAdded={fetchUsers} />
-
-      <div className="mt-6">
+    <div>
+      <h1 className="text-2xl font-bold mb-4">User List</h1>
+      <ul>
         {users.map((user) => (
-          <div key={user._id} className="user-card">
-            <h2>{user.name}</h2>
-            <p>{user.bio}</p>
-            <strong>Skills Offered:</strong> {user.skillsOffered.join(", ")}<br />
-            <strong>Skills Needed:</strong> {user.skillsNeeded.join(", ")}
-          </div>
+          <li 
+            key={user._id} 
+            className="flex justify-between items-center bg-gray-100 p-4 mb-2 rounded-lg"
+          >
+            <div>
+              <p><strong>Name:</strong> {user.name}</p>
+              <p><strong>Email:</strong> {user.email}</p>
+              <p><strong>Skills Offered:</strong> {user.skillsOffered.join(", ")}</p>
+            </div>
+            <button 
+              onClick={() => onEdit(user._id)} 
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Edit
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
