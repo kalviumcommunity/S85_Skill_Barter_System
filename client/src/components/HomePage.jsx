@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import FilterByUserDropdown from "./FilterByUserDropdown";
 
-const HomePage = ({ users, onEdit, refreshList }) => {
+const HomePage = () => {
+  const [entities, setEntities] = useState([]);
+  const [selectedUserId, setSelectedUserId] = useState("");
+
+  useEffect(() => {
+    let url = "http://localhost:5000/api/users";
+    if (selectedUserId) {
+      url += `?created_by=${selectedUserId}`;
+    }
+    fetch(url)
+      .then((res) => res.json())
+      .then(setEntities)
+      .catch(console.error);
+  }, [selectedUserId]);
+
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">User List</h1>
-      <ul>
-        {users.map((user) => (
-          <li 
-            key={user._id} 
-            className="flex justify-between items-center bg-gray-100 p-4 mb-2 rounded-lg"
-          >
-            <div>
-              <p><strong>Name:</strong> {user.name}</p>
-              <p><strong>Email:</strong> {user.email}</p>
-              <p><strong>Skills Offered:</strong> {user.skillsOffered.join(", ")}</p>
-            </div>
-            <button 
-              onClick={() => onEdit(user._id)} 
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Edit
-            </button>
-          </li>
+    <div className="p-6">
+      <FilterByUserDropdown onSelectUser={setSelectedUserId} />
+      <div className="mt-4">
+        {entities.map((user) => (
+          <div key={user._id} className="p-4 mb-2 bg-gray-100 rounded">
+            <h2 className="text-lg font-bold">{user.name}</h2>
+            <p>{user.bio}</p>
+            <p><strong>Skills Offered:</strong> {user.skillsOffered.join(", ")}</p>
+            <p><strong>Skills Needed:</strong> {user.skillsNeeded.join(", ")}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
